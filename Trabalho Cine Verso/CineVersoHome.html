@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="CineVersoHome" content="width=device-width, initial-scale=1.0">
+    <title>Home CineVerso</title>
+    <link rel="stylesheet" href="styleCineVerso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/4e1a4e3a2c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="logo">
+      🎥 <span>Cine</span>Verso
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="CineVersoHome.html">Início</a></li>
+        <li><a href="CatálogoCineVerso.html">Catálogo</a></li>
+        <li><a href="#footer">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="theme-toggle">
+  <button id="themeBtn">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+</div>
+
+  </header>
+
+  <!-- Banner CineVerso -->
+  <div class="banner-home">
+    <img src="Banner CineVerso.png" alt="Banner CineVerso">
+  </div>
+
+  <section class="welcome">
+  <h1>🎬 Bem-vindo ao CineVerso!</h1>
+  <p class="intro">
+    Aqui você encontra filmes e séries para descobrir, conhecer e se inspirar.
+  </p>
+
+  <!-- Checkbox invisível -->
+  <input type="checkbox" id="toggleInfo">
+
+  <!-- Botão controlado pelo checkbox -->
+  <label for="toggleInfo" class="btn-info"></label>
+
+  <!-- Texto expandido -->
+  <div class="extra">
+    <p>
+      O CineVerso foi criado para facilitar sua vida na hora de escolher o que assistir.
+      Navegue pelo catálogo, leia sinopses e explore novos títulos organizados por gênero,
+      ano e classificação.
+    </p>
+    <p>
+    <br>
+      Nosso objetivo é ajudar você a descobrir histórias incríveis 🎥✨
+    </p>
+    <p>
+    <br>
+      Explore sem pressa, descubra novas aventuras, viva novos romances, investigue novos casos, explore novas terras... 
+    </p>
+    <p>
+    <br>
+      O universo do cinema está ao seu alcance, quem faz seu limite é você!
+    </p>
+  </div>
+</section>
+
+  <script>
+  const btn = document.getElementById("themeBtn");
+  const body = document.body;
+
+  // Carrega o tema salvo
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+
+  btn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      localStorage.setItem("theme", "dark");
+    } else {
+      btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+<footer id="footer" class="footer">
+    <div class="footer-content">
+      <p>© 2025 Todos os direitos reservados.<br>
+      <strong>João Vitor Bortolaci da Silva</strong> · 
+      <strong>Luiza Szulczewski de Quadros</strong> · 
+      <strong>Victória Cunha Fogaça</strong></p>
+
+      <div class="social-icons">
+        <!-- João -->
+        <div class="pessoa">
+          <p>João</p>
+          <a href="https://www.instagram.com/jv.borto/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/BortoJV" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- Luiza -->
+        <div class="pessoa">
+          <p>Luiza</p>
+          <a href="https://www.instagram.com/lu.quadross_/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/dashboard" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- Victória -->
+        <div class="pessoa">
+          <p>Victória</p>
+          <a href="https://www.instagram.com/__cunhaaaa/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/dashboard" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="CineVerso" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo CineVerso</title>
+    <link rel="stylesheet" href="styleCineVerso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/4e1a4e3a2c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="logo">
+      🎥 <span>Cine</span>Verso
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="CineVersoHome.html">Início</a></li>
+        <li><a href="CatálogoCineVerso.html">Catálogo</a></li>
+        <li><a href="#footer">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Buscar filme...">
+      <button id="clearBtn">❌</button>
+    </div>
+
+    <div class="theme-toggle">
+  <button id="themeBtn">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+  </div>
+  </header>
+
+  <main id="catalogo"></main>
+
+  <!-- 📺 Modal de Detalhes -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <img id="modalPoster" src="" alt="Poster do Filme">
+      <div class="modal-info">
+        <h2 id="modalTitulo"></h2>
+        <p id="modalAno"></p>
+        <p id="modalGenero"></p>
+        <p id="modalDescricao"></p>
+        <p id="duracao"></p>
+        <img id="modalClassificacao" style="width: 40px; margin-top:3px; margin-bottom: 3px; display:none;">
+        <iframe id="modalTrailer" width="100%" height="250" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="CineVerso.js"></script>
+
+  <script>
+  const btn = document.getElementById("themeBtn");
+  const body = document.body;
+
+  // Carrega o tema salvo
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+
+  btn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      localStorage.setItem("theme", "dark");
+    } else {
+      btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+<footer id="footer" class="footer">
+    <div class="footer-content">
+      <p>© 2025 Todos os direitos reservados.<br>
+      <strong>João Vitor Bortolaci da Silva</strong> · 
+      <strong>Luiza Szulczewski de Quadros</strong> · 
+      <strong>Victória Cunha Fogaça</strong></p>
+
+      <div class="social-icons">
+        <!-- João -->
+        <div class="pessoa">
+          <p>João</p>
+          <a href="https://www.instagram.com/jv.borto/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/BortoJV" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- Luiza -->
+        <div class="pessoa">
+          <p>Luiza</p>
+          <a href="https://www.instagram.com/lu.quadross_/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/dashboard" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+
+        <!-- Victória -->
+        <div class="pessoa">
+          <p>Victória</p>
+          <a href="https://www.instagram.com/__cunhaaaa/" target="_blank" class="icon instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://mail.google.com/mail/u/4/#inbox" class="icon email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/dashboard" target="_blank" class="icon github"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

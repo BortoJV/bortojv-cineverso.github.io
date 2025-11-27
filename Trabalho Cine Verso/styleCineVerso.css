@@ -1,0 +1,469 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #fff;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #0e0e0e;
+  padding: 15px 40px;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff3333;
+}
+
+.logo span {
+  color: #fff;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff3333;
+}
+
+/* Busca */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #1a1a1a;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.search-box input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 5px 10px;
+  width: 180px;
+}
+
+#clearBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#clearBtn:hover {
+  color: #ff3333;
+}
+
+/* Catálogo */
+.lista-filmes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.filme {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.filme:hover {
+  transform: scale(1.05);
+}
+
+/* 📏 Define um tamanho fixo para os pôsteres */
+.filme img {
+  width: 180px;       /* largura fixa */
+  height: 270px;      /* altura fixa */
+  object-fit: cover;  /* corta ou ajusta a imagem proporcionalmente */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+}
+
+/* Nome do filme */
+.filme h3 {
+  font-size: 16px;
+  margin: 6px 0 2px;
+  color: #fff;
+}
+
+/* Ano */
+.filme p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Gênero (título da seção) */
+.genero h2 {
+  margin: 30px 20px 10px;
+  color: #ff3333;
+  border-left: 4px solid #ff3333;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+
+  line-height: -20px;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal img {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.modal-info {
+  flex: 1;
+}
+
+.modal h2 {
+  color: #ff3333;
+  margin-bottom: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff3333;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .modal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.footer {
+  background: linear-gradient(135deg, #111 0%, #222 50%, #1a1a1a 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 2px solid #ff3333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Container dos ícones e nomes */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.pessoa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1c1c1c;
+  padding: 15px 25px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.pessoa:hover {
+  background: #222;
+}
+
+.pessoa p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ff3333;
+}
+
+.icon {
+  margin: 0 6px;
+  font-size: 22px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Ícones coloridos */
+.icon.instagram { color: #ffffff; }
+.icon.github { color: #fff; }
+.icon.email { color: #ffffff; }
+
+/* Efeito hover */
+.icon:hover {
+  transform: scale(1.2);
+  color: #ff3333;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pessoa {
+    width: 80%;
+  }
+}
+/* ============================
+   🌙 MODO ESCURO (Dark Mode)
+   ============================ */
+
+body.dark {
+  background-color: #0e0e0e;
+  color: #fff;
+}
+
+/* Header */
+body.dark .header {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+body.dark .navbar a {
+  color: #fff;
+}
+
+body.dark .navbar a:hover {
+  color: #ff3333;
+}
+
+/* Cards dos filmes */
+body.dark .filme {
+  background-color: #2a2a2a;
+}
+
+body.dark .filme:hover {
+  transform: scale(1.05);
+}
+
+body.dark .filme h3 {
+  color: #fff;
+}
+
+body.dark .filme p {
+  color: #cccccc;
+}
+
+/* Modal */
+body.dark .modal {
+  background-color: rgba(0,0,0,0.85);
+}
+
+body.dark .modal-content {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .modal h2 {
+  color: #ff3333;
+}
+
+body.dark .close {
+  color: #fff;
+}
+
+body.dark .close:hover {
+  color: #ff3333;
+}
+
+/* Inputs e busca */
+body.dark .search-box {
+  background-color: #242424;
+}
+
+body.dark .search-box input {
+  color: #fff;
+}
+
+body.dark #clearBtn {
+  color: #fff;
+}
+
+/* Seções de gênero */
+body.dark .genero h2 {
+  color: #ff3333;
+}
+
+/* Footer */
+body.dark .footer {
+  background: linear-gradient(135deg, #050505 0%, #111 50%, #222 100%);
+  border-top: 2px solid #ff3333;
+}
+
+body.dark .footer p {
+  color: #ddd;
+}
+
+/* Cartões do rodapé */
+body.dark .pessoa {
+  background: #2b2b2b;
+}
+
+body.dark .pessoa:hover {
+  background: #333;
+}
+
+/* Ícones */
+body.dark .icon {
+  color: #fff;
+}
+
+body.dark .icon:hover {
+  color: #ff3333;
+}
+.welcome {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  color: #050505;
+}
+
+.welcome h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* checkbox invisível */
+#toggleInfo {
+  display: none;
+}
+
+/* estilo do botão */
+.btn-info {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: #050505;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* texto inicial do botão */
+.btn-info::after {
+  content: "Saiba mais";
+}
+
+/* quando o checkbox está ativado, o texto muda */
+#toggleInfo:checked + .btn-info::after {
+  content: "Mostrar menos";
+}
+
+/* conteúdo extra escondido */
+.extra {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+/* mostra quando marcado */
+#toggleInfo:checked ~ .extra {
+  display: block;
+  opacity: 1;
+}
+
+/* ajuste para modo escuro */
+body.dark .welcome {
+  color: #f1f1f1;
+}
+.banner-home {
+  width: 100%;
+  max-height: 450px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.banner-home img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
